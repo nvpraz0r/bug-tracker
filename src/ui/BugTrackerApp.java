@@ -28,7 +28,7 @@ public class BugTrackerApp {
 
             switch (userChoice) {
                 // replace print statements with function calls
-                case "l" -> System.out.println("List");
+                case "l" -> printMenu();
                 case "a" -> System.out.println("Active");
                 case "u" -> System.out.println("Update");
                 case "c" -> System.out.println("Create");
@@ -44,6 +44,8 @@ public class BugTrackerApp {
 
     // this function is meant to be called as many times as the user needs
     private static void printMenu(){
+        System.out.println();
+        System.out.println("======------======");
         System.out.println("List of commands:");
         System.out.println("L - List all bugs");
         System.out.println("A - List active bugs");
@@ -52,5 +54,7 @@ public class BugTrackerApp {
         System.out.println("D - Delete an entry:");
         System.out.println("H - Help:");
         System.out.println("E - Exit");
+        System.out.println("======------======");
+        System.out.println();
     }
 }
