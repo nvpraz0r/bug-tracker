@@ -16,6 +16,15 @@ public class BugTrackerApp {
         // better to fail early than later
         // add try block to create text file
 
+        try{
+
+        } catch (Exception e){
+            System.out.println("Error reading text file");
+            System.out.println(e);
+            System.out.println("Exiting");
+            System.exit(0);
+        }
+
         // print command menu
         System.out.println("Bug Tracker");
         printMenu();
