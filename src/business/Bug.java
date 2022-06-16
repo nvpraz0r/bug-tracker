@@ -49,7 +49,7 @@ public class Bug {
         this.description = description;
     }
 
-    public String isStatus() {
+    public String getStatus() {
         return status;
     }
 

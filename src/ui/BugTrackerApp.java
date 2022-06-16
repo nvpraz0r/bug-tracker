@@ -6,10 +6,19 @@
 
 package ui;
 
+import business.Bug;
+import database.DAO;
+
+import java.util.List;
+
 /**
  * BugTrackerApp class is the main application driver
  */
 public class BugTrackerApp {
+
+    // declare static DAO object
+    private static DAO<Bug> file;
+
     public static void main(String args[]){
 
         // check for existence of text file
@@ -37,12 +46,12 @@ public class BugTrackerApp {
 
             switch (userChoice) {
                 // replace print statements with function calls
-                case "l" -> printMenu();
+                case "l" -> System.out.println("List");
                 case "a" -> System.out.println("Active");
                 case "u" -> System.out.println("Update");
                 case "c" -> System.out.println("Create");
                 case "d" -> System.out.println("Delete");
-                case "h" -> System.out.println("Help");
+                case "h" -> printMenu();
                 case "e" -> System.out.println("Exiting");
                 default -> System.out.println("Please enter a valid navigation command...");
             }
@@ -59,9 +68,9 @@ public class BugTrackerApp {
         System.out.println("L - List all bugs");
         System.out.println("A - List ACTIVE bugs"); // maybe this won't make the cut
         System.out.println("U - Update status of a bug");
-        System.out.println("C - Create a new entry:");
-        System.out.println("D - Delete an entry:");
-        System.out.println("H - Help:");
+        System.out.println("C - Create a new entry");
+        System.out.println("D - Delete an entry");
+        System.out.println("H - Help");
         System.out.println("E - Exit");
         System.out.println("======------======");
         System.out.println();
@@ -70,7 +79,34 @@ public class BugTrackerApp {
     // declaring functions ahead of giving functionality
     // planning what needs to be done
 
-    public static void displayAllBugs(){}
+    public static void displayAllBugs(){
+
+        // declare list object
+        List<Bug> bugs;
+
+        try{
+            // instantiate object to all elements
+        } catch (Exception e){
+            System.out.println("There was an error retrieving the list");
+        }
+
+        // this statement is moved outside of the try block
+        bugs = file.getAll();
+
+        // declare bug object
+        Bug b;
+        StringBuilder sb = new StringBuilder();
+
+        // loop through each element in the object and format the display
+        for (Bug bug : bugs) {
+            b = bug;
+            sb.append(StringFormat.formatWithSpaces(b.getName(), 8));
+            sb.append(StringFormat.formatWithSpaces(b.getDescription(), 44));
+            sb.append(StringFormat.formatWithSpaces(b.getStatus(), 8));
+            sb.append(b.getId());
+        }
+        System.out.println(sb.toString());
+    }
 
     public static void displayActiveBugs(){}
 

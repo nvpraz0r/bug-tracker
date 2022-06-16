@@ -28,7 +28,7 @@ public class GetInput {
      */
     public static String getString(){
         String s = "";
-        System.out.println("enter a command");
+        System.out.print("enter a command: ");
         s = sc.next();
         sc.nextLine();
         return s.toLowerCase();
