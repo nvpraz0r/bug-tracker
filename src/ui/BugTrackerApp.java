@@ -1,6 +1,9 @@
 /**
  * @Author Jon
  * @Version 0.1
+ *
+ * Notes to self:
+ *
  */
 
 package ui;
@@ -18,11 +21,10 @@ public class BugTrackerApp {
 
         String userChoice = "";
 
+        // main functionality loop
         do {
-
             userChoice = GetInput.getString();
 
-            // enhanced switch case
             switch (userChoice) {
                 case "l" -> System.out.println("List");
                 case "a" -> System.out.println("Active");
@@ -33,6 +35,7 @@ public class BugTrackerApp {
                 case "e" -> System.out.println("Exiting");
                 default -> System.out.println("Something went wrong");
             }
+
         } while(!userChoice.equals("e"));
 
     }
