@@ -17,7 +17,7 @@ public class BugTrackerApp {
         // add try block to create text file
 
         try{
-
+            // attempt to create a new file object
         } catch (Exception e){
             System.out.println("Error reading text file");
             System.out.println(e);
@@ -44,7 +44,7 @@ public class BugTrackerApp {
                 case "d" -> System.out.println("Delete");
                 case "h" -> System.out.println("Help");
                 case "e" -> System.out.println("Exiting");
-                default -> System.out.println("Something might have went wrong");
+                default -> System.out.println("Please enter a valid navigation command...");
             }
 
         } while(!userChoice.equals("e"));
