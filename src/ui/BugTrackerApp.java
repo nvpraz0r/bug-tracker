@@ -2,12 +2,13 @@
  * @Author Jon
  * @Version 0.1
  *
- * Notes to self:
- *
  */
 
 package ui;
 
+/**
+ * BugTrackerApp class is the main application driver
+ */
 public class BugTrackerApp {
     public static void main(String args[]){
 
@@ -26,6 +27,7 @@ public class BugTrackerApp {
             userChoice = GetInput.getString();
 
             switch (userChoice) {
+                // replace print statements with function calls
                 case "l" -> System.out.println("List");
                 case "a" -> System.out.println("Active");
                 case "u" -> System.out.println("Update");
@@ -33,7 +35,7 @@ public class BugTrackerApp {
                 case "d" -> System.out.println("Delete");
                 case "h" -> System.out.println("Help");
                 case "e" -> System.out.println("Exiting");
-                default -> System.out.println("Something went wrong");
+                default -> System.out.println("Something might have went wrong");
             }
 
         } while(!userChoice.equals("e"));
@@ -44,7 +46,6 @@ public class BugTrackerApp {
     private static void printMenu(){
         System.out.println("List of commands:");
         System.out.println("L - List all bugs");
-        //add functionality to this
         System.out.println("A - List active bugs");
         System.out.println("U - Update status of a bug");
         System.out.println("C - Create a new entry:");

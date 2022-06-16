@@ -10,15 +10,17 @@ package ui;
 
 import java.util.Scanner;
 
+
+/**
+ * GetInput class retrieves user input in some cases validates too
+ */
 public class GetInput {
 
+    // scanner object
     private static Scanner sc = new Scanner(System.in);
 
     /**
-     * This method is called by BugTracker class
-     *
-     * The input is validated by the switch case
-     *
+     * This method is called by BugTracker class the input is validated by the switch case
      * @return user input
      */
     public static String getString(){
@@ -26,6 +28,6 @@ public class GetInput {
         System.out.println("enter a command");
         s = sc.next();
         sc.nextLine();
-        return s;
+        return s.toLowerCase();
     }
 }
