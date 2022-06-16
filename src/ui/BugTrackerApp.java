@@ -14,16 +14,36 @@ public class BugTrackerApp {
 
         // print command menu
         System.out.println("Bug Tracker");
+        printMenu();
 
+        String userChoice = "";
+
+        do {
+
+            userChoice = GetInput.getString();
+
+            // enhanced switch case
+            switch (userChoice) {
+                case "l" -> System.out.println("List");
+                case "a" -> System.out.println("Active");
+                case "u" -> System.out.println("Update");
+                case "c" -> System.out.println("Create");
+                case "d" -> System.out.println("Delete");
+                case "h" -> System.out.println("Help");
+                case "e" -> System.out.println("Exiting");
+                default -> System.out.println("Something went wrong");
+            }
+        } while(!userChoice.equals("e"));
 
     }
 
+    // this function is meant to be called as many times as the user needs
     private static void printMenu(){
         System.out.println("List of commands:");
         System.out.println("L - List all bugs");
         //add functionality to this
         System.out.println("A - List active bugs");
-        System.out.println("I - Change bug to inactive");
+        System.out.println("U - Update status of a bug");
         System.out.println("C - Create a new entry:");
         System.out.println("D - Delete an entry:");
         System.out.println("H - Help:");
