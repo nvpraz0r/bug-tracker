@@ -48,7 +48,7 @@ public class BugTrackerApp {
         System.out.println("======------======");
         System.out.println("List of commands:");
         System.out.println("L - List all bugs");
-        System.out.println("A - List active bugs");
+        System.out.println("A - List ACTIVE bugs"); // maybe this won't make the cut
         System.out.println("U - Update status of a bug");
         System.out.println("C - Create a new entry:");
         System.out.println("D - Delete an entry:");
@@ -57,4 +57,20 @@ public class BugTrackerApp {
         System.out.println("======------======");
         System.out.println();
     }
+
+    // declaring functions ahead of giving functionality
+    // planning what needs to be done
+
+    public static void displayAllBugs(){}
+
+    public static void displayActiveBugs(){}
+
+    public static void updateBugStatus(){}
+
+    public static void createBug(){}
+
+    public static void deleteBug(){}
+
+    public static void helpUse(){}
+
 }
