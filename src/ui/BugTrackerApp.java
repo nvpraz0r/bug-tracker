@@ -94,16 +94,17 @@ public class BugTrackerApp {
         bugs = file.getAll();
 
         // declare bug object
-        Bug b;
+        Bug bugObject;
         StringBuilder sb = new StringBuilder();
 
         // loop through each element in the object and format the display
-        for (Bug bug : bugs) {
-            b = bug;
-            sb.append(StringFormat.formatWithSpaces(b.getName(), 8));
-            sb.append(StringFormat.formatWithSpaces(b.getDescription(), 44));
-            sb.append(StringFormat.formatWithSpaces(b.getStatus(), 8));
-            sb.append(b.getId());
+        for (Bug i : bugs) {
+            bugObject = i;
+            // NTS: change getId to the end of append calls if it looks awkward
+            sb.append(bugObject.getId());
+            sb.append(StringFormat.formatWithSpaces(bugObject.getName(), 8));
+            sb.append(StringFormat.formatWithSpaces(bugObject.getDescription(), 44));
+            sb.append(StringFormat.formatWithSpaces(bugObject.getStatus(), 8));
         }
         System.out.println(sb.toString());
     }
