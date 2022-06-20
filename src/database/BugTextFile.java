@@ -52,4 +52,50 @@ public final class BugTextFile implements DAO<Bug>{
         return bugs;
     }
 
+    @Override
+    public Bug get(String name) throws Exception{
+        for (Bug b : bugs){
+            if(b.getName().equals(name)){
+                return b;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public boolean delete(Bug b) throws Exception{
+        bugs.remove(b);
+        return this.saveAll();
+    }
+
+    @Override
+    public boolean add(Bug b) throws Exception{
+        bugs.add(b);
+        return this.saveAll();
+    }
+
+    @Override
+    public boolean update(Bug newBug) throws Exception{
+        Bug oldBug = this.get(newBug.getName());
+        int i = bugs.indexOf(oldBug);
+        bugs.remove(i);
+
+        bugs.add(i, newBug);
+
+        return this.saveAll();
+    }
+
+    private boolean saveAll() throws Exception{
+        try (PrintWriter out = new PrintWriter(new BufferedWriter( new FileWriter(bugFile)))){
+            for(Bug b: bugs){
+                out.print(b.getId() + TAB_SEP);
+                out.print(b.getName() + TAB_SEP);
+                out.print(b.getDescription() + TAB_SEP);
+                out.print(b.getStatus());
+            }
+            return true;
+        } catch (IOException e){
+            throw new Exception(e);
+        }
+    }
 }

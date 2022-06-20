@@ -82,16 +82,14 @@ public class BugTrackerApp {
     public static void displayAllBugs(){
 
         // declare list object
-        List<Bug> bugs;
+        List<Bug> bugs = null;
 
         try{
             // instantiate object to all elements
+            bugs = file.getAll();
         } catch (Exception e){
             System.out.println("There was an error retrieving the list");
         }
-
-        // this statement is moved outside of the try block
-        bugs = file.getAll();
 
         // declare bug object
         Bug bugObject;
