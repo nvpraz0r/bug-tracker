@@ -46,7 +46,7 @@ public class BugTrackerApp {
 
             switch (userChoice) {
                 // replace print statements with function calls
-                case "l" -> System.out.println("List");
+                case "l" -> displayActiveBugs();
                 case "a" -> System.out.println("Active");
                 case "u" -> System.out.println("Update");
                 case "c" -> System.out.println("Create");
@@ -107,7 +107,16 @@ public class BugTrackerApp {
         System.out.println(sb.toString());
     }
 
-    public static void displayActiveBugs(){}
+    public static void displayActiveBugs(){
+        System.out.println("ACTIVE BUGS");
+
+        List<Bug> bugs;
+        try{
+            bugs = file.getAll();
+        } catch (Exception e){
+            System.out.println("An error has occurred");
+        }
+    }
 
     public static void updateBugStatus(){}
 
